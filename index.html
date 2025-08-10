@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>আন্না ফ্যাশন — গার্মেন্টস ম্যানুফ্যাকচারার</title>
+
+  <style>
+    /* -------- Base / Theme -------- */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+    :root {
+      --bg: #0b1220;         /* deep navy */
+      --bg-2: #0c1225;       /* gradient tail */
+      --text: #e7e9ee;       /* light text */
+      --muted: #9aa3b2;      /* muted text */
+      --card: rgba(255,255,255,.06);
+      --stroke: rgba(255,255,255,.12);
+      --brand-1: #22d3ee;    /* cyan */
+      --brand-2: #22c55e;    /* emerald */
+      --accent: #eab308;     /* amber */
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(2,8,23,.35);
+    }
+    body {
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Hind Siliguri", "Noto Sans Bengali", SolaimanLipi, Arial, "Helvetica Neue", Noto Sans, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 20% -10%, rgba(34,197,94,.15), transparent 60%),
+        radial-gradient(1000px 600px at 80% 10%, rgba(34,211,238,.15), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg-2));
+      background-attachment: fixed;
+      line-height: 1.55;
+    }
+    .container { width: min(1100px, 92%); margin-inline: auto; }
+
+    /* -------- Header / Nav -------- */
+    .site-header { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(1.2) blur(8px); background: linear-gradient(180deg, rgba(12,18,37,.75), rgba(12,18,37,.4)); border-bottom: 1px solid var(--stroke); }
+    .navbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .2px; font-size: clamp(18px, 2vw, 22px); }
+    .brand .mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, var(--brand-1), var(--brand-2)); box-shadow: 0 8px 20px rgba(34,197,94,.25); }
+    .brand .mark svg { width: 22px; height: 22px; fill: white; opacity: .95; }
+    .nav-links { display: flex; gap: 18px; align-items: center; }
+    .nav-links a { text-decoration: none; color: var(--text); font-weight: 700; padding: 10px 14px; border-radius: 12px; border: 1px solid transparent; }
+    .nav-links a:hover { border-color: var(--stroke); background: rgba(255,255,255,.04); }
+
+    /* Mobile menu (CSS only) */
+    .menu-toggle { display: none; }
+    .menu-btn { display: none; }
+    @media (max-width: 760px) {
+      .menu-btn { display: flex; align-items: center; gap: 10px; padding: 10px 12px; border: 1px solid var(--stroke); border-radius: 12px; cursor: pointer; }
+      .nav-links { position: fixed; top: 64px; right: 4%; left: 4%; display: none; flex-direction: column; padding: 12px; background: rgba(12,18,37,.9); border: 1px solid var(--stroke); border-radius: 16px; box-shadow: var(--shadow); }
+      #menu:checked ~ .nav-links { display: flex; }
+    }
+
+    /* -------- Buttons -------- */
+    .btn { display: inline-block; text-decoration: none; font-weight: 800; letter-spacing: .2px; padding: 12px 18px; border-radius: 14px; border: 1px solid var(--stroke); }
+    .btn.primary { background: linear-gradient(135deg, var(--brand-1), var(--brand-2)); color: #061016; border-color: transparent; }
+    .btn.ghost { color: var(--text); background: rgba(255,255,255,.04); }
+    .btn:hover { transform: translateY(-1px); }
+
+    /* -------- Page switcher (CSS :target) -------- */
+    .page { display: none; padding: 56px 0 80px; }
+    .page:target { display: block; }
+    #home.page { display: block; }
+    @supports selector(body:has(.page:target)) {
+      body:has(.page:target) #home.page { display: none; }
+    }
+
+    /* -------- Hero -------- */
+    .hero { padding: 56px 0 16px; }
+    .hero .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: center; }
+    .hero h1 { font-size: clamp(32px, 5vw, 52px); line-height: 1.1; font-weight: 900; letter-spacing: .2px; }
+    .hero p.lead { color: var(--muted); font-size: clamp(16px, 2vw, 18px); margin-top: 16px; }
+    .hero .cta { margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-visual { position: relative; border-radius: 24px; overflow: hidden; border: 1px solid var(--stroke); background: linear-gradient(135deg, rgba(34,211,238,.12), rgba(34,197,94,.12)); min-height: 340px; box-shadow: var(--shadow); padding: 0; }
+    .hero-visual img { display:block; width:100%; height:340px; object-fit: cover; }
+    .hero-visual .badges { position: absolute; inset: auto auto 12px 12px; display: flex; gap: 10px; flex-wrap: wrap; }
+    .badge { padding: 8px 12px; border-radius: 999px; font-size: 12.5px; border: 1px solid var(--stroke); background: rgba(6,16,22,.5); }
+
+    .brand-belt { margin-top: 14px; display: inline-flex; align-items: center; gap: 10px; padding: 8px 12px; border-radius: 999px; border: 1px solid var(--stroke); background: rgba(255,255,255,.04); font-weight: 900; letter-spacing: .3px; }
+
+    /* -------- Carousel (CSS scroll-snap) -------- */
+    .carousel { margin-top: 0; }
+    .track { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; padding: 14px; }
+    .track::-webkit-scrollbar { height: 10px; }
+    .track::-webkit-scrollbar-thumb { background: rgba(255,255,255,.12); border-radius: 999px; }
+    .slide { flex: 0 0 85%; scroll-snap-align: center; border-radius: 20px; border: 1px solid var(--stroke); overflow: hidden; background: var(--card); box-shadow: var(--shadow); }
+    .slide img { display: block; width: 100%; height: 320px; object-fit: cover; }
+
+    /* -------- Stats -------- */
+    .stats { margin: 24px 0 10px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .stat { padding: 18px; border-radius: 16px; border: 1px solid var(--stroke); background: var(--card); box-shadow: var(--shadow); }
+    .stat b { font-size: 22px; display: block; }
+    .stat span { color: var(--muted); font-size: 13px; }
+
+    /* -------- Generic cards/sections -------- */
+    .section { margin-top: 28px; }
+    .card { border: 1px solid var(--stroke); background: var(--card); border-radius: 18px; padding: 18px; box-shadow: var(--shadow); }
+
+    /* -------- Map / images -------- */
+    .map, .map img { position: relative; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; border: 1px solid var(--stroke); width: 100%; display:block; }
+
+    /* -------- Grids -------- */
+    .grid { display: grid; gap: 16px; }
+    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+
+    /* -------- Products -------- */
+    .product { overflow: hidden; }
+    .thumb { border-radius: 14px; border: 1px solid var(--stroke); aspect-ratio: 4/3; overflow: hidden; background: rgba(255,255,255,.04); }
+    .thumb img { width: 100%; height: 100%; object-fit: cover; display:block; }
+    .product h3 { margin-top: 12px; font-size: 16px; }
+    .meta { color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+    /* -------- Factory -------- */
+    .factory-hero { border-radius: 20px; overflow: hidden; border: 1px solid var(--stroke); box-shadow: var(--shadow); }
+    .factory-hero img { width: 100%; height: 320px; object-fit: cover; display: block; }
+    .kpis { margin-top: 6px; }
+    .kpis .kpi { padding: 18px; border-radius: 16px; border: 1px solid var(--stroke); background: var(--card); }
+    .kpis .kpi b { font-size: 24px; display: block; }
+    .list { display: grid; gap: 10px; margin-top: 10px; }
+    .list li { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border: 1px solid var(--stroke); border-radius: 12px; background: rgba(255,255,255,.03); }
+    .list svg { width: 18px; height: 18px; flex: 0 0 18px; margin-top: 2px; }
+
+    /* -------- Contact -------- */
+    .form { display: grid; gap: 14px; margin-top: 10px; }
+    .form input, .form textarea { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--stroke); background: rgba(255,255,255,.04); color: var(--text); outline: none; }
+    .form input:focus, .form textarea:focus { border-color: rgba(34,211,238,.6); box-shadow: 0 0 0 4px rgba(34,211,238,.15); }
+    .form button { all: unset; display: inline-block; padding: 12px 16px; border-radius: 12px; background: linear-gradient(135deg, var(--brand-1), var(--brand-2)); font-weight: 800; cursor: pointer; }
+
+    /* -------- Footer -------- */
+    .site-footer { margin-top: 40px; border-top: 1px solid var(--stroke); }
+    .site-footer .wrap { display: flex; gap: 12px; align-items: center; justify-content: space-between; padding: 20px 0 26px; }
+    .social a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--stroke); background: rgba(255,255,255,.04); margin-left: 6px; }
+    .social a:hover { transform: translateY(-1px); }
+
+    /* -------- Responsive -------- */
+    @media (max-width: 960px) {
+      .hero .wrap { grid-template-columns: 1fr; }
+      .grid.cols-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid.cols-3 { grid-template-columns: repeat(2, 1fr); }
+      .slide img, .factory-hero img { height: 260px; }
+    }
+    @media (max-width: 560px) {
+      .grid.cols-4, .grid.cols-3 { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: repeat(2, 1fr); }
+      .slide { flex-basis: 92%; }
+    }
+
+    :focus-visible { outline: 3px solid rgba(34,211,238,.6); outline-offset: 3px; }
+
+    @media (prefers-reduced-motion:no-preference) {
+      .hero-visual { animation: float 12s ease-in-out infinite; }
+      @keyframes float { 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-6px);} }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <div class="container navbar">
+    <div class="brand">
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zM7 10h10l-1.5 7h-7zM9 19a3 3 0 106 0"/></svg>
+      </div>
+      <span>অনন্যা ফ্যাশন (Ananna Fashion)</span>
+    </div>
+
+    <label for="menu" class="menu-btn" aria-label="মেনু টগল করুন">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
+      মেনু
+    </label>
+    <input id="menu" type="checkbox" class="menu-toggle" hidden>
+
+    <nav class="nav-links">
+      <a href="#products">পণ্যসমূহ</a>
+      <a href="#factory">ফ্যাক্টরি</a>
+      <a href="#contact">যোগাযোগ</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HOME (Landing) -->
+<main id="home" class="page" aria-label="হোম">
+  <section class="hero">
+    <div class="container wrap">
+      <div>
+        <h1>বিশ্বমানের রেডিমেড গার্মেন্টস—সময়মতো, নির্ভরযোগ্য উৎপাদন</h1>
+        <span class="brand-belt">HOWLADAR WASHING PLANT</span>
+        <p class="lead">আন্না ফ্যাশন ঢাকাভিত্তিক প্রস্তুতকারক; নিট ও ওভেন—দু’ধরনের পোশাকে উচ্চ মান, কম্প্লায়েন্স ও স্বচ্ছ সোর্সিং‑এর নিশ্চয়তা দিয়ে কাজ করি।</p>
+        <div class="cta">
+          <a class="btn primary" href="#products">পণ্য দেখুন</a>
+          <a class="btn ghost" href="#factory">ফ্যাক্টরি বিস্তারিত</a>
+        </div>
+        <div class="stats" role="list">
+          <div class="stat" role="listitem"><b>১৮</b><span>সেলাই লাইন</span></div>
+          <div class="stat" role="listitem"><b>৪.৫ লক্ষ+</b><span>ইউনিট/মাস</span></div>
+          <div class="stat" role="listitem"><b>১২–১৪ সপ্তাহ</b><span>লিড টাইম</span></div>
+          <div class="stat" role="listitem"><b>২০০+</b><span>দক্ষ কর্মী</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="badges">
+          <span class="badge">BSCI</span>
+          <span class="badge">SEDEX</span>
+          <span class="badge">WRAP</span>
+          <span class="badge">ISO 9001</span>
+        </div>
+        <!-- Carousel with Bangladesh‑relevant images -->
+        <div class="carousel">
+          <div class="track">
+            <figure class="slide"><img alt="ঢাকার গার্মেন্টস কারখানার সেলাই ফ্লোর" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg/1280px-Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg"/></figure>
+            <figure class="slide"><img alt="বাংলাদেশে টি‑শার্ট কোয়ালিটি চেক" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/T-Shirt_Quality_Checking_in_a_RMG_factory_of_Bangladesh.JPG/1280px-T-Shirt_Quality_Checking_in_a_RMG_factory_of_Bangladesh.JPG"/></figure>
+            <figure class="slide"><img alt="বাংলাদেশি নারী কর্মীদের সেলাই" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Bangladeshi_women_sewing_clothes.jpg/1280px-Bangladeshi_women_sewing_clothes.jpg"/></figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="grid cols-3">
+      <div class="card">
+        <h3>আমরা কারা</h3>
+        <p class="meta" style="margin-top:6px;">সম্পূর্ণ সেবা‑ভিত্তিক গার্মেন্টস পার্টনার; মান‑দাম‑কম্প্লায়েন্স—সবকিছুর ভারসাম্যে EU/UK/NA বাজারে কাজের অভিজ্ঞতা।</p>
+      </div>
+      <div class="card">
+        <h3>আমরা কী বানাই</h3>
+        <p class="meta" style="margin-top:6px;">টি‑শার্ট, পোলো, হুডি, ডেনিম, কিডসওয়্যার, স্পোর্টসওয়্যার, স্লিপওয়্যার ও ওয়ার্কওয়্যার—কটন/ব্লেন্ড/পারফরম্যান্স ফ্যাব্রিকে।</p>
+      </div>
+      <div class="card">
+        <h3>আমাদের অবস্থান</h3>
+        <p class="meta" style="margin-top:6px;">প্লট নং‑৪৯, ৫২, ৫৩ · রোড নং‑০৩ · ব্লক‑কে · রূপনগর, মিরপুর‑২, ঢাকা‑১২১৬, বাংলাদেশ</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section container">
+    <div class="card">
+      <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap:18px; align-items:center;">
+        <div>
+          <h2 style="font-size: clamp(20px, 3vw, 28px);">আমাদের লোকেশন</h2>
+          <p class="meta" style="margin-top:8px;">হেড অফিস ও ফ্যাক্টরি: প্লট নং‑৪৯, ৫২, ৫৩, রোড নং‑০৩, ব্লক‑কে, রূপনগর, মিরপুর‑২, ঢাকা‑১২১৬, বাংলাদেশ।</p>
+          <p class="meta" style="margin-top:6px;">ইমেইল: sagar@anannafashion-bd.com</p>
+        </div>
+        <!-- Real static map from OpenStreetMap -->
+        <div class="map" aria-label="রূপনগর, মিরপুর‑২, ঢাকা — ম্যাপ">
+          <img alt="রূপনগর ব্লক‑কে, মিরপুর‑২, ঢাকার ম্যাপ" src="https://staticmap.openstreetmap.de/staticmap.php?center=23.814937,90.354831&zoom=16&size=800x450&markers=23.814937,90.354831,red-pushpin"/>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- PRODUCTS -->
+<section id="products" class="page" aria-label="পণ্যসমূহ">
+  <div class="container">
+    <h2 style="font-size: clamp(26px, 4vw, 40px);">পণ্য তালিকা</h2>
+    <p class="meta" style="margin-top:6px;">আমাদের মূল স্টাইলগুলোর একটি ঝলক। কাস্টম ডিজাইন/ট্রিম/ওয়াশ অনুরোধে সম্ভব।</p>
+
+    <div class="section grid cols-4">
+      <div class="card product">
+        <div class="thumb"><img alt="টি‑শার্ট প্যাকিং (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/T-Shirt_Quality_Checking_in_a_RMG_factory_of_Bangladesh.JPG/1280px-T-Shirt_Quality_Checking_in_a_RMG_factory_of_Bangladesh.JPG"/></div>
+        <h3>টি‑শার্ট (নিট)</h3>
+        <div class="meta">কম্বড কটন · ১৬০–২২০ GSM · ন্যূনতম অর্ডার: ২,০০০</div>
+      </div>
+      <div class="card product">
+        <div class="thumb"><img alt="টি‑শার্ট ডিসপ্লে (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/T_Shirt_Display.JPG/1280px-T_Shirt_Display.JPG"/></div>
+        <h3>পোলো</h3>
+        <div class="meta">পিকে · ২০০–২৪০ GSM · ন্যূনতম অর্ডার: ১,৫০০</div>
+      </div>
+      <div class="card product">
+        <div class="thumb"><img alt="স্ক্রিন প্রিন্টিং (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Octopus_printing_machine_in_a_RMG_factory_of_Bangladesh.JPG/1280px-Octopus_printing_machine_in_a_RMG_factory_of_Bangladesh.JPG"/></div>
+        <h3>হুডি ও সুইটশার্ট</h3>
+        <div class="meta">ফ্লিস · ২৬০–৩২০ GSM · ন্যূনতম অর্ডার: ১,৫০০</div>
+      </div>
+      <div class="card product">
+        <div class="thumb"><img alt="ডেনিম ওয়াশিং ইউনিট (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Denim_Washing.JPG/1280px-Denim_Washing.JPG"/></div>
+        <h3>ডেনিম জ্যাকেট</h3>
+        <div class="meta">১২–১৪ oz · এনজাইম/স্টোন ওয়াশ · ন্যূনতম অর্ডার: ৮০০</div>
+      </div>
+      <div class="card product">
+        <div class="thumb"><img alt="সেলাই প্রশিক্ষণ (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Bangladeshi_women_sewing_clothes.jpg/1280px-Bangladeshi_women_sewing_clothes.jpg"/></div>
+        <h3>কিডসওয়্যার</h3>
+        <div class="meta">কোমল ফিনিশ · AZO‑মুক্ত · ন্যূনতম অর্ডার: ২,০০০</div>
+      </div>
+      <div class="card product">
+        <div class="thumb"><img alt="নিট ফ্যাব্রিক কাটিং (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Knit_Fabric_Cutting_in_a_RMG_factory_of_Bangladesh.JPG/1280px-Knit_Fabric_Cutting_in_a_RMG_factory_of_Bangladesh.JPG"/></div>
+        <h3>স্পোর্টসওয়্যার</h3>
+        <div class="meta">পলি/স্প্যানডেক্স · ড্রাই‑ফিট · ন্যূনতম অর্ডার: ১,৫০০</div>
+      </div>
+      <div class="card product">
+        <div class="thumb"><img alt="পোশাক প্রেসিং সেকশন (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/T-Shirt_Iron_Section.JPG/961px-T-Shirt_Iron_Section.JPG"/></div>
+        <h3>স্লিপওয়্যার</h3>
+        <div class="meta">ব্রাশড নিট/ওভেন · ন্যূনতম অর্ডার: ১,২০০</div>
+      </div>
+      <div class="card product">
+        <div class="thumb"><img alt="ডেনিম প্যান্ট ডিসপ্লে (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Denim_Jeans_Pant_Display.JPG"/></div>
+        <h3>ওয়ার্কওয়্যার</h3>
+        <div class="meta">ডিউরেবল টুইল · রিইনফোর্সড সিম · ন্যূনতম অর্ডার: ১,০০০</div>
+      </div>
+    </div>
+
+    <div class="section card">
+      <h3>সক্ষমতা</h3>
+      <div class="grid cols-3" style="margin-top:10px;">
+        <div>
+          <b>প্রিন্টিং</b><div class="meta">স্ক্রিন, DTG, সাবলিমেশন</div>
+        </div>
+        <div>
+          <b>এম্ব্রয়ডারি</b><div class="meta">৩ডি পাফ, চেইন স্টিচ, অ্যাপ্লিক</div>
+        </div>
+        <div>
+          <b>ওয়াশ</b><div class="meta">এনজাইম, স্টোন, এসিড, রিন্স</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <a class="btn primary" href="#contact">কোট চাই</a>
+      <a class="btn ghost" href="#factory">ফ্যাক্টরি দেখুন</a>
+    </div>
+  </div>
+</section>
+
+<!-- FACTORY -->
+<section id="factory" class="page" aria-label="ফ্যাক্টরি">
+  <div class="container">
+    <h2 style="font-size: clamp(26px, 4vw, 40px);">ফ্যাক্টরি বিস্তারিত</h2>
+    <p class="meta" style="margin-top:6px;">কম্প্লায়েন্স‑প্রথম, নিরাপদ অপারেশন—ইয়ার্ন থেকে ফাইনাল প্যাকিং পর্যন্ত স্বচ্ছ প্রক্রিয়া।</p>
+
+    <div class="section factory-hero">
+      <img alt="বাংলাদেশের আধুনিক গার্মেন্টস সেলাই ফ্লোর" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg/1280px-Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg"/>
+    </div>
+
+    <div class="grid cols-3 kpis">
+      <div class="kpi"><b>১৮</b><span class="meta">সেলাই লাইন</span></div>
+      <div class="kpi"><b>৪.৫ লক্ষ+</b><span class="meta">মাসিক সক্ষমতা</span></div>
+      <div class="kpi"><b>৩০,০০০ বর্গফুট</b><span class="meta">উৎপাদন এলাকা</span></div>
+    </div>
+
+    <div class="section card">
+      <h3>কম্প্লায়েন্স ও সার্টিফিকেশন</h3>
+      <ul class="list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19l11-11-1.5-1.5z"/></svg>
+          <div><b>BSCI & SEDEX</b><div class="meta">প্রতি বছর সামাজিক কম্প্লায়েন্স অডিট</div></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19l11-11-1.5-1.5z"/></svg>
+          <div><b>WRAP</b><div class="meta">Worldwide Responsible Accredited Production</div></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9 16.2l-3.5-3.5L4 14.2 9 19l11-11-1.5-1.5z"/></svg>
+          <div><b>ISO 9001</b><div class="meta">কোয়ালিটি ম্যানেজমেন্ট সিস্টেম</div></div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section card">
+      <h3>প্রক্রিয়া ধাপসমূহ</h3>
+      <div class="grid cols-4" style="margin-top:10px;">
+        <div><b>১. সোর্সিং</b><div class="meta">ইয়ার্ন/ফ্যাব্রিক</div></div>
+        <div><b>২. কাটিং</b><div class="meta">অটো স্প্রেডার ও কাটার</div></div>
+        <div><b>৩. সেলাই</b><div class="meta">১৮ লাইন · ইনলাইন QC</div></div>
+        <div><b>৪. ফিনিশিং</b><div class="meta">প্রেসিং · প্যাকিং · AQL</div></div>
+      </div>
+    </div>
+
+    <div class="section">
+      <a class="btn primary" href="#contact">অর্ডার শুরু করুন</a>
+      <a class="btn ghost" href="#products">পণ্য দেখুন</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="page" aria-label="যোগাযোগ">
+  <div class="container">
+    <h2 style="font-size: clamp(26px, 4vw, 40px);">যোগাযোগ করুন</h2>
+
+    <div class="grid cols-3 section">
+      <div class="card" style="grid-column: span 2;">
+        <h3>বার্তা পাঠান</h3>
+        <form class="form" onsubmit="return false;">
+          <div style="display:grid; gap:12px; grid-template-columns: 1fr 1fr;">
+            <input type="text" placeholder="আপনার নাম" required>
+            <input type="email" placeholder="ইমেইল" required>
+          </div>
+          <input type="text" placeholder="কোম্পানি/ব্র্যান্ড (ঐচ্ছিক)">
+          <textarea rows="4" placeholder="প্রজেক্ট বিবরণ বা প্রশ্ন…" required></textarea>
+          <button type="submit">সাবমিট (স্ট্যাটিক ডেমো)</button>
+          <div class="meta">এটি স্ট্যাটিক ডেমো। জিজ্ঞাসায় ইমেইল করুন: <b>sagar@anannafashion-bd.com</b></div>
+        </form>
+      </div>
+
+      <div class="card">
+        <h3>অফিস</h3>
+        <p class="meta" style="margin-top:6px;">প্লট নং‑৪৯, ৫২, ৫৩ · রোড নং‑০৩ · ব্লক‑কে · রূপনগর, মিরপুর‑২, ঢাকা‑১২১৬, বাংলাদেশ</p>
+        <div class="map" style="margin-top:12px; aspect-ratio: 1/1; position: relative;">
+          <img alt="অফিস লোকেশন (রূপনগর, মিরপুর‑২)" src="https://staticmap.openstreetmap.de/staticmap.php?center=23.814937,90.354831&zoom=16&size=800x800&markers=23.814937,90.354831,red-pushpin"/>
+        </div>
+        <div class="meta" style="margin-top:10px;">রবি–শনি · ০৯:০০–১৮:০০ (GMT+6)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer" aria-label="ফুটার">
+  <div class="container wrap">
+    <div>© ২০২৫  ফ্যাশন · সর্বস্বত্ব সংরক্ষিত</div>
+    <div class="social" aria-label="সোশ্যাল লিংক">
+      <span class="meta">ছবি ক্রেডিট: Wikimedia Commons — Fahad Faisal ও অন্যান্য (CC BY‑SA)</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
