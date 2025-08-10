@@ -4,8 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
-  <title>আন্না ফ্যাশন — গার্মেন্টস ম্যানুফ্যাকচারার</title>
-
+  <title>অনন্যা ফ্যাশন (Ananna Fashion) — গার্মেন্টস ম্যানুফ্যাকচারার</title>
   <style>
     /* -------- Base / Theme -------- */
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,7 +37,7 @@
     /* -------- Header / Nav -------- */
     .site-header { position: sticky; top: 0; z-index: 50; backdrop-filter: saturate(1.2) blur(8px); background: linear-gradient(180deg, rgba(12,18,37,.75), rgba(12,18,37,.4)); border-bottom: 1px solid var(--stroke); }
     .navbar { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .2px; font-size: clamp(18px, 2vw, 22px); }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .2px; font-size: clamp(18px, 2vw, 22px); text-decoration: none; color: var(--text); cursor: pointer; }
     .brand .mark { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 10px; background: linear-gradient(135deg, var(--brand-1), var(--brand-2)); box-shadow: 0 8px 20px rgba(34,197,94,.25); }
     .brand .mark svg { width: 22px; height: 22px; fill: white; opacity: .95; }
     .nav-links { display: flex; gap: 18px; align-items: center; }
@@ -100,7 +99,7 @@
     .card { border: 1px solid var(--stroke); background: var(--card); border-radius: 18px; padding: 18px; box-shadow: var(--shadow); }
 
     /* -------- Map / images -------- */
-    .map, .map img { position: relative; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; border: 1px solid var(--stroke); width: 100%; display:block; }
+    .map, .map img, .map iframe { position: relative; aspect-ratio: 16/9; border-radius: 16px; overflow: hidden; border: 1px solid var(--stroke); width: 100%; display:block; }
 
     /* -------- Grids -------- */
     .grid { display: grid; gap: 16px; }
@@ -160,12 +159,12 @@
 <body>
 <header class="site-header">
   <div class="container navbar">
-    <div class="brand">
+    <a class="brand" href="/" title="হোম (/) এ যান">
       <div class="mark" aria-hidden="true">
         <svg viewBox="0 0 24 24"><path d="M3 6h18v2H3zM7 10h10l-1.5 7h-7zM9 19a3 3 0 106 0"/></svg>
       </div>
       <span>অনন্যা ফ্যাশন (Ananna Fashion)</span>
-    </div>
+    </a>
 
     <label for="menu" class="menu-btn" aria-label="মেনু টগল করুন">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
@@ -174,6 +173,7 @@
     <input id="menu" type="checkbox" class="menu-toggle" hidden>
 
     <nav class="nav-links">
+      <a href="/">হোম</a>
       <a href="#products">পণ্যসমূহ</a>
       <a href="#factory">ফ্যাক্টরি</a>
       <a href="#contact">যোগাযোগ</a>
@@ -186,7 +186,7 @@
   <section class="hero">
     <div class="container wrap">
       <div>
-        <h1>বিশ্বমানের রেডিমেড গার্মেন্টস—সময়মতো, নির্ভরযোগ্য উৎপাদন</h1>
+        <h1>বিশ্বমানের রেডি‑মেড গার্মেন্টস—সময়মতো, নির্ভরযোগ্য উৎপাদন</h1>
         <span class="brand-belt">HOWLADAR WASHING PLANT</span>
         <p class="lead">আন্না ফ্যাশন ঢাকাভিত্তিক প্রস্তুতকারক; নিট ও ওভেন—দু’ধরনের পোশাকে উচ্চ মান, কম্প্লায়েন্স ও স্বচ্ছ সোর্সিং‑এর নিশ্চয়তা দিয়ে কাজ করি।</p>
         <div class="cta">
@@ -210,9 +210,9 @@
         <!-- Carousel with Bangladesh‑relevant images -->
         <div class="carousel">
           <div class="track">
-            <figure class="slide"><img alt="ঢাকার গার্মেন্টস কারখানার সেলাই ফ্লোর" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg/1280px-Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg"/></figure>
-            <figure class="slide"><img alt="বাংলাদেশে টি‑শার্ট কোয়ালিটি চেক" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/T-Shirt_Quality_Checking_in_a_RMG_factory_of_Bangladesh.JPG/1280px-T-Shirt_Quality_Checking_in_a_RMG_factory_of_Bangladesh.JPG"/></figure>
-            <figure class="slide"><img alt="বাংলাদেশি নারী কর্মীদের সেলাই" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Bangladeshi_women_sewing_clothes.jpg/1280px-Bangladeshi_women_sewing_clothes.jpg"/></figure>
+            <figure class="slide"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%230b1220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23e7e9ee%22 font-size=%2230%22 text-anchor=%22middle%22 dy=%22.3em%22%3Eচিত্র লোড হয়নি%3C/text%3E%3C/svg%3E'" alt="ঢাকার গার্মেন্টস কারখানার সেলাই ফ্লোর" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg/1280px-Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg"/></figure>
+            <figure class="slide"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%230b1220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23e7e9ee%22 font-size=%2230%22 text-anchor=%22middle%22 dy=%22.3em%22%3Eচিত্র লোড হয়নি%3C/text%3E%3C/svg%3E'" alt="বাংলাদেশে টি‑শার্ট কোয়ালিটি চেক" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/T-Shirt_Quality_Checking_in_a_RMG_factory_of_Bangladesh.JPG/1280px-T-Shirt_Quality_Checking_in_a_RMG_factory_of_Bangladesh.JPG"/></figure>
+            <figure class="slide"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%230b1220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23e7e9ee%22 font-size=%2230%22 text-anchor=%22middle%22 dy=%22.3em%22%3Eচিত্র লোড হয়নি%3C/text%3E%3C/svg%3E'" alt="বাংলাদেশি নারী কর্মীদের সেলাই" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Bangladeshi_women_sewing_clothes.jpg/1280px-Bangladeshi_women_sewing_clothes.jpg"/></figure>
           </div>
         </div>
       </div>
@@ -244,9 +244,9 @@
           <p class="meta" style="margin-top:8px;">হেড অফিস ও ফ্যাক্টরি: প্লট নং‑৪৯, ৫২, ৫৩, রোড নং‑০৩, ব্লক‑কে, রূপনগর, মিরপুর‑২, ঢাকা‑১২১৬, বাংলাদেশ।</p>
           <p class="meta" style="margin-top:6px;">ইমেইল: sagar@anannafashion-bd.com</p>
         </div>
-        <!-- Real static map from OpenStreetMap -->
+        <!-- Interactive OpenStreetMap embed for reliability -->
         <div class="map" aria-label="রূপনগর, মিরপুর‑২, ঢাকা — ম্যাপ">
-          <img alt="রূপনগর ব্লক‑কে, মিরপুর‑২, ঢাকার ম্যাপ" src="https://staticmap.openstreetmap.de/staticmap.php?center=23.814937,90.354831&zoom=16&size=800x450&markers=23.814937,90.354831,red-pushpin"/>
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox=90.344831%2C23.804937%2C90.364831%2C23.824937&layer=mapnik&marker=23.814937%2C90.354831"></iframe>
         </div>
       </div>
     </div>
@@ -261,42 +261,42 @@
 
     <div class="section grid cols-4">
       <div class="card product">
-        <div class="thumb"><img alt="টি‑শার্ট প্যাকিং (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/T-Shirt_Quality_Checking_in_a_RMG_factory_of_Bangladesh.JPG/1280px-T-Shirt_Quality_Checking_in_a_RMG_factory_of_Bangladesh.JPG"/></div>
+        <div class="thumb"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%230b1220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23e7e9ee%22 font-size=%2230%22 text-anchor=%22middle%22 dy=%22.3em%22%3Eচিত্র লোড হয়নি%3C/text%3E%3C/svg%3E'" alt="টি‑শার্ট প্যাকিং (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/T-Shirt_Quality_Checking_in_a_RMG_factory_of_Bangladesh.JPG/1024px-T-Shirt_Quality_Checking_in_a_RMG_factory_of_Bangladesh.JPG"/></div>
         <h3>টি‑শার্ট (নিট)</h3>
         <div class="meta">কম্বড কটন · ১৬০–২২০ GSM · ন্যূনতম অর্ডার: ২,০০০</div>
       </div>
       <div class="card product">
-        <div class="thumb"><img alt="টি‑শার্ট ডিসপ্লে (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/T_Shirt_Display.JPG/1280px-T_Shirt_Display.JPG"/></div>
+        <div class="thumb"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%230b1220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23e7e9ee%22 font-size=%2230%22 text-anchor=%22middle%22 dy=%22.3em%22%3Eচিত্র লোড হয়নি%3C/text%3E%3C/svg%3E'" alt="টি‑শার্ট ডিসপ্লে (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/T_Shirt_Display.JPG/1024px-T_Shirt_Display.JPG"/></div>
         <h3>পোলো</h3>
-        <div class="meta">পিকে · ২০০–২৪০ GSM · ন্যূনতম অর্ডার: ১,৫০০</div>
+        <div class="meta">পике · ২০০–২৪০ GSM · ন্যূনতম অর্ডার: ১,৫০০</div>
       </div>
       <div class="card product">
-        <div class="thumb"><img alt="স্ক্রিন প্রিন্টিং (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Octopus_printing_machine_in_a_RMG_factory_of_Bangladesh.JPG/1280px-Octopus_printing_machine_in_a_RMG_factory_of_Bangladesh.JPG"/></div>
+        <div class="thumb"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%230b1220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23e7e9ee%22 font-size=%2230%22 text-anchor=%22middle%22 dy=%22.3em%22%3Eচিত্র লোড হয়নি%3C/text%3E%3C/svg%3E'" alt="স্ক্রিন প্রিন্টিং (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Octopus_printing_machine_in_a_RMG_factory_of_Bangladesh.JPG/1024px-Octopus_printing_machine_in_a_RMG_factory_of_Bangladesh.JPG"/></div>
         <h3>হুডি ও সুইটশার্ট</h3>
         <div class="meta">ফ্লিস · ২৬০–৩২০ GSM · ন্যূনতম অর্ডার: ১,৫০০</div>
       </div>
       <div class="card product">
-        <div class="thumb"><img alt="ডেনিম ওয়াশিং ইউনিট (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Denim_Washing.JPG/1280px-Denim_Washing.JPG"/></div>
+        <div class="thumb"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%230b1220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23e7e9ee%22 font-size=%2230%22 text-anchor=%22middle%22 dy=%22.3em%22%3Eচিত্র লোড হয়নি%3C/text%3E%3C/svg%3E'" alt="ডেনিম ওয়াশিং ইউনিট (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Denim_Washing.JPG/1024px-Denim_Washing.JPG"/></div>
         <h3>ডেনিম জ্যাকেট</h3>
         <div class="meta">১২–১৪ oz · এনজাইম/স্টোন ওয়াশ · ন্যূনতম অর্ডার: ৮০০</div>
       </div>
       <div class="card product">
-        <div class="thumb"><img alt="সেলাই প্রশিক্ষণ (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Bangladeshi_women_sewing_clothes.jpg/1280px-Bangladeshi_women_sewing_clothes.jpg"/></div>
+        <div class="thumb"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%230b1220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23e7e9ee%22 font-size=%2230%22 text-anchor=%22middle%22 dy=%22.3em%22%3Eচিত্র লোড হয়নি%3C/text%3E%3C/svg%3E'" alt="সেলাই প্রশিক্ষণ (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Bangladeshi_women_sewing_clothes.jpg/1024px-Bangladeshi_women_sewing_clothes.jpg"/></div>
         <h3>কিডসওয়্যার</h3>
         <div class="meta">কোমল ফিনিশ · AZO‑মুক্ত · ন্যূনতম অর্ডার: ২,০০০</div>
       </div>
       <div class="card product">
-        <div class="thumb"><img alt="নিট ফ্যাব্রিক কাটিং (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Knit_Fabric_Cutting_in_a_RMG_factory_of_Bangladesh.JPG/1280px-Knit_Fabric_Cutting_in_a_RMG_factory_of_Bangladesh.JPG"/></div>
+        <div class="thumb"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%230b1220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23e7e9ee%22 font-size=%2230%22 text-anchor=%22middle%22 dy=%22.3em%22%3Eচিত্র লোড হয়নি%3C/text%3E%3C/svg%3E'" alt="নিট ফ্যাব্রিক কাটিং (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Knit_Fabric_Cutting_in_a_RMG_factory_of_Bangladesh.JPG/1024px-Knit_Fabric_Cutting_in_a_RMG_factory_of_Bangladesh.JPG"/></div>
         <h3>স্পোর্টসওয়্যার</h3>
         <div class="meta">পলি/স্প্যানডেক্স · ড্রাই‑ফিট · ন্যূনতম অর্ডার: ১,৫০০</div>
       </div>
       <div class="card product">
-        <div class="thumb"><img alt="পোশাক প্রেসিং সেকশন (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/T-Shirt_Iron_Section.JPG/961px-T-Shirt_Iron_Section.JPG"/></div>
+        <div class="thumb"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%230b1220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23e7e9ee%22 font-size=%2230%22 text-anchor=%22middle%22 dy=%22.3em%22%3Eচিত্র লোড হয়নি%3C/text%3E%3C/svg%3E'" alt="পোশাক প্রেসিং সেকশন (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/T-Shirt_Iron_Section.JPG/1024px-T-Shirt_Iron_Section.JPG"/></div>
         <h3>স্লিপওয়্যার</h3>
         <div class="meta">ব্রাশড নিট/ওভেন · ন্যূনতম অর্ডার: ১,২০০</div>
       </div>
       <div class="card product">
-        <div class="thumb"><img alt="ডেনিম প্যান্ট ডিসপ্লে (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/6/60/Denim_Jeans_Pant_Display.JPG"/></div>
+        <div class="thumb"><img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 800 600%22%3E%3Crect width=%22800%22 height=%22600%22 fill=%22%230b1220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23e7e9ee%22 font-size=%2230%22 text-anchor=%22middle%22 dy=%22.3em%22%3Eচিত্র লোড হয়নি%3C/text%3E%3C/svg%3E'" alt="ডেনিম প্যান্ট ডিসপ্লে (বাংলাদেশ)" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Denim_Jeans_Pant_Display.JPG/1024px-Denim_Jeans_Pant_Display.JPG"/></div>
         <h3>ওয়ার্কওয়্যার</h3>
         <div class="meta">ডিউরেবল টুইল · রিইনফোর্সড সিম · ন্যূনতম অর্ডার: ১,০০০</div>
       </div>
@@ -331,7 +331,7 @@
     <p class="meta" style="margin-top:6px;">কম্প্লায়েন্স‑প্রথম, নিরাপদ অপারেশন—ইয়ার্ন থেকে ফাইনাল প্যাকিং পর্যন্ত স্বচ্ছ প্রক্রিয়া।</p>
 
     <div class="section factory-hero">
-      <img alt="বাংলাদেশের আধুনিক গার্মেন্টস সেলাই ফ্লোর" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg/1280px-Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg"/>
+      <img loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 1200 360%22%3E%3Crect width=%221200%22 height=%22360%22 fill=%22%230b1220%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 fill=%22%23e7e9ee%22 font-size=%2236%22 text-anchor=%22middle%22 dy=%22.3em%22%3Eচিত্র লোড হয়নি%3C/text%3E%3C/svg%3E'" alt="বাংলাদেশের আধুনিক গার্মেন্টস সেলাই ফ্লোর" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg/1280px-Remi_Holdings_LEED_certified_factories_in_Bangladesh.jpg"/>
     </div>
 
     <div class="grid cols-3 kpis">
@@ -399,7 +399,7 @@
         <h3>অফিস</h3>
         <p class="meta" style="margin-top:6px;">প্লট নং‑৪৯, ৫২, ৫৩ · রোড নং‑০৩ · ব্লক‑কে · রূপনগর, মিরপুর‑২, ঢাকা‑১২১৬, বাংলাদেশ</p>
         <div class="map" style="margin-top:12px; aspect-ratio: 1/1; position: relative;">
-          <img alt="অফিস লোকেশন (রূপনগর, মিরপুর‑২)" src="https://staticmap.openstreetmap.de/staticmap.php?center=23.814937,90.354831&zoom=16&size=800x800&markers=23.814937,90.354831,red-pushpin"/>
+          <iframe loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.openstreetmap.org/export/embed.html?bbox=90.344831%2C23.804937%2C90.364831%2C23.824937&layer=mapnik&marker=23.814937%2C90.354831"></iframe>
         </div>
         <div class="meta" style="margin-top:10px;">রবি–শনি · ০৯:০০–১৮:০০ (GMT+6)</div>
       </div>
@@ -409,9 +409,9 @@
 
 <footer class="site-footer" aria-label="ফুটার">
   <div class="container wrap">
-    <div>© ২০২৫  ফ্যাশন · সর্বস্বত্ব সংরক্ষিত</div>
+    <div>© ২০২৫ আন্না ফ্যাশন · সর্বস্বত্ব সংরক্ষিত</div>
     <div class="social" aria-label="সোশ্যাল লিংক">
-      <span class="meta">ছবি ক্রেডিট: Wikimedia Commons — Fahad Faisal ও অন্যান্য (CC BY‑SA)</span>
+      <span class="meta">ছবি ক্রেডিট: অনন্যা ফ্যাশন (Ananna Fashion)</span>
     </div>
   </div>
 </footer>
